@@ -1,30 +1,57 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import Job from './types/Job'
+import JobsList from './components/JobsList.vue';
+
+export default defineComponent({
+  name: 'App',
+  components: { JobsList },
+  setup() {
+    const jobs = ref<Job[]>([
+      {
+        title: 'Infiltration',
+        location: 'New York, NY',
+        salary: 3000000,
+        id: '1'
+      },
+      {
+        title: 'Recon environment',
+        location: 'Shadow Moses Island, Alaska',
+        salary: 10000,
+        id: '2'
+      },
+      {
+        title: 'Rescue Hostage',
+        location: 'Off-shore plant',
+        salary: 100000000,
+        id: '3'
+      },
+      {
+        title: 'Sabotage Grozny Grad',
+        location: 'Grozny Grad, Russia',
+        salary: 25000000,
+        id: '4'
+      },
+      {
+        title: 'Eliminate Liquid Ocelot',
+        location: 'Unknown Location',
+        salary: 99999999,
+        id: '5'
+      }
+    ])
+
+    return {
+      jobs
+    }
+  }
+})
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="app">
+    <JobsList :jobs="jobs" />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
