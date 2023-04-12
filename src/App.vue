@@ -58,9 +58,14 @@ export default defineComponent({
 
 <template>
   <div class="app">
-    <button @click="handleClick('title')">Order by title</button>
-    <button @click="handleClick('salary')">Order by salary</button>
-    <button @click="handleClick('location')">Order by location</button>
+    <header>
+      <h1 class="title">Missions</h1>
+      <div class="order">
+        <button @click="handleClick('title')">Order by title</button>
+        <button @click="handleClick('salary')">Order by salary</button>
+        <button @click="handleClick('location')">Order by location</button>
+      </div>
+    </header>
     <JobsList :jobs="jobs" :order="order"/>
   </div>
 </template>
@@ -71,6 +76,13 @@ header {
 }
 header .order {
   margin-top: 20px;
+}
+header .title{
+  display: flex;
+  justify-content: center;
+}
+header h1 {
+  font-size: 3em;
 }
 button {
   margin: 0 10px;

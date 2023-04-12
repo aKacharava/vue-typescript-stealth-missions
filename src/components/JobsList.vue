@@ -32,7 +32,7 @@ export default defineComponent({
 <template>
   <div class="job-list">
     <p>Ordered by {{ order }}</p>
-    <ul>
+    <transition-group name="list" tag="ul">
       <li v-for="job in orderedJobs" :key="job.id">
         <h2>{{ job.title }} in {{ job.location }}</h2>
         <div class="salary">
@@ -42,7 +42,7 @@ export default defineComponent({
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, harum. Officiis placeat illo molestiae similique officia eveniet enim voluptates dolores laborum assumenda, voluptatum aperiam beatae non harum unde quas sunt.
         </div>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
@@ -73,5 +73,8 @@ export default defineComponent({
   color: #17bf66;
   font-weight: bold;
   margin: 10px 4px;
+}
+.list-move {
+  transition: all 500ms;
 }
 </style>
